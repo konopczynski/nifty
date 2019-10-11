@@ -38,7 +38,7 @@ namespace multicut{
         
         struct NiftyRounder {
             
-            typedef GraphType GraphType;
+            typedef MulticutMp::GraphType GraphType;
 
             NiftyRounder(std::shared_ptr<McFactoryBase> factory) 
                 : factory_(factory)
