@@ -514,7 +514,7 @@ namespace detail_fastfilters {
                     auto sigma = sigmas_[jj];
                     const auto & shapeView = (numberOfChannels(ii) == 1)  ? shapeSingleChannel : shapeMultiChannel;;
 
-                    xt::slice_vector slice;
+                    xt::xstrided_slice_vector slice;
                     xtensor::sliceFromOffset(slice, base, shapeView);
                     auto view = xt::strided_view(out, slice);
                     auto squeezedView = xtensor::squeezedView(view);
@@ -579,7 +579,7 @@ namespace detail_fastfilters {
                     double sigmaPreDesired = std::sqrt(sigma*sigma - 1.);
                     double sigmaNeedForPre = std::sqrt(sigmaPreDesired*sigmaPreDesired - sigmaPre*sigmaPre);
                     // presmooth with gaussian
-                    xt::slice_vector slice;
+                    xt::xstrided_slice_vector slice;
                     xtensor::sliceFromOffset(slice, preBase, shapeSingleChannel);
                     auto preView = xt::strided_view(preSmoothed, slice);
                     auto squeezedPreView = xtensor::squeezedView(preView);
@@ -598,7 +598,7 @@ namespace detail_fastfilters {
                     const auto & viewBase = bases[ii][jj];
                     const auto & viewShape = (numberOfChannels(jj) == 1) ? shapeSingleChannel : shapeMultiChannel;
 
-                    xt::slice_vector slice;
+                    xt::xstrided_slice_vector slice;
                     xtensor::sliceFromOffset(slice, viewBase, viewShape);
                     auto view = xt::strided_view(out, slice);
                     auto squeezedView = xtensor::squeezedView(view);
@@ -649,7 +649,7 @@ namespace detail_fastfilters {
                 const auto & viewBase = bases[fid];
                 const auto & viewShape = (numberOfChannels(filterId) == 1)  ? shapeSingleChannel : shapeMultiChannel;
                 //std::cout << "Apply Filter from " << viewBase << " with shape " << viewShape << std::endl;
-                xt::slice_vector slice;
+                xt::xstrided_slice_vector slice;
                 xtensor::sliceFromOffset(slice, viewBase, viewShape);
                 auto view = xt::strided_view(out, slice);
                 auto squeezedView = xtensor::squeezedView(view);
