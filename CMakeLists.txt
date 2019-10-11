@@ -330,6 +330,7 @@ if(WITH_LP_MP)
     include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/LP_MP/external/cereal/include")
     include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/LP_MP/external/tclap/include")
     include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/LP_MP/external/lingeling-ala")
+    include_directories("${CMAKE_CURRENT_SOURCE_DIR}/externals/LP_MP/external/graph/include")
 
     ## TODO this seems to be a pretty old version, would the newer version help?!
     ## FIXME we actually don't need to link this for building the LP_MP multicut
