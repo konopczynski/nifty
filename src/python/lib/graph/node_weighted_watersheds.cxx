@@ -26,7 +26,7 @@ namespace graph{
             xt::pytensor<uint64_t, 1> seeds,
             xt::pytensor<float, 1> nodeWeights
         ){
-            xt::pytensor<uint64_t, 1> labels({uint64_t(seeds.shape()[0])});
+            xt::pytensor<uint64_t, 1> labels = xt::zeros<uint64_t>({int64_t(seeds.shape()[0])});
             nodeWeightedWatershedsSegmentation(graph, nodeWeights, seeds, labels);
             return labels;
         },
